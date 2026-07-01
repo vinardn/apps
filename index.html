@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waduh! App-nya Ilang - 404 GWS</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Space Grotesk for Gen Z / Tech Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #030712; /* Deep Slate / Dark mode */
+        }
+
+        /* Glitch text effect for 404 */
+        .glitch-wrapper {
+            position: relative;
+        }
+        .glitch-text::before, .glitch-text::after {
+            content: "404";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #030712;
+        }
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff007f;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 #00ffff, 0 2px #ff007f;
+            clip: rect(85px, 450px, 140px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            10% { clip: rect(112px, 9999px, 76px, 0); }
+            20% { clip: rect(85px, 9999px, 5px, 0); }
+            30% { clip: rect(27px, 9999px, 115px, 0); }
+            40% { clip: rect(73px, 9999px, 29px, 0); }
+            50% { clip: rect(118px, 9999px, 142px, 0); }
+            60% { clip: rect(9px, 9999px, 53px, 0); }
+            70% { clip: rect(58px, 9999px, 49px, 0); }
+            80% { clip: rect(127px, 9999px, 88px, 0); }
+            90% { clip: rect(15px, 9999px, 122px, 0); }
+            100% { clip: rect(104px, 9999px, 62px, 0); }
+        }
+
+        @keyframes glitch-anim2 {
+            0% { clip: rect(76px, 9999px, 116px, 0); }
+            11% { clip: rect(43px, 9999px, 19px, 0); }
+            22% { clip: rect(122px, 9999px, 88px, 0); }
+            33% { clip: rect(11px, 9999px, 67px, 0); }
+            44% { clip: rect(135px, 9999px, 110px, 0); }
+            55% { clip: rect(90px, 9999px, 14px, 0); }
+            66% { clip: rect(54px, 9999px, 145px, 0); }
+            77% { clip: rect(102px, 9999px, 3px, 0); }
+            88% { clip: rect(61px, 9999px, 121px, 0); }
+            99% { clip: rect(119px, 9999px, 54px, 0); }
+            100% { clip: rect(28px, 9999px, 99px, 0); }
+        }
+
+        /* Floating elements */
+        .float-fast {
+            animation: float 4s ease-in-out infinite;
+        }
+        .float-slow {
+            animation: float 7s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="text-slate-100 flex flex-col justify-between min-h-screen relative overflow-x-hidden">
+
+    <!-- Decorative background glow and shapes -->
+    <div class="absolute top-10 left-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-screen filter blur-[100px] opacity-20 pointer-events-none float-slow"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px] opacity-15 pointer-events-none float-fast"></div>
+
+    <!-- Header / Navbar -->
+    <header class="container mx-auto px-6 py-6 flex justify-between items-center z-10">
+        <div class="flex items-center space-x-2">
+            <span class="text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-cyan-400">
+                ⚡ NYARI APAAN?
+            </span>
+        </div>
+        <div>
+            <button onclick="triggerPanic()" class="px-4 py-2 text-xs md:text-sm bg-rose-600/20 hover:bg-rose-600 border border-rose-500/30 text-rose-300 hover:text-white rounded-full transition-all duration-300 flex items-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation animate-pulse"></i> Tombol Panik
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="container mx-auto px-4 md:px-6 py-4 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-center z-10">
+        
+        <!-- Left Column: Error Message & Branding (7 Cols on desktop) -->
+        <section class="lg:col-span-7 space-y-6 md:space-y-8 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-300 text-xs md:text-sm">
+                <span>⚠️ INFO DARI PUSAT: </span>
+                <span class="font-bold">Aplikasi Lagi Ngambek / Mogok</span>
+            </div>
+
+            <!-- Big Interactive Glitch Heading -->
+            <div class="glitch-wrapper">
+                <h1 class="glitch-text text-8xl md:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400">
+                    404
+                </h1>
+                <p class="text-2xl md:text-4xl font-extrabold text-slate-100 tracking-tight mt-2">
+                    Jancok, App-nya Gak Ketemu... 😭💔
+                </p>
+            </div>
+
+            <!-- Supporting Gen Z Copy -->
+            <p class="text-slate-400 text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                Rill cuy, kita udah ubek-ubek seisi database tapi hasilnya tetep <span class="text-pink-400 underline decoration-pink-500 decoration-wavy">kosong melompong</span>. Mungkin aplikasinya lagi butuh healing ke Bali, cape dicoding mulu, atau emang kena ghosting developer. Gws ya!
+            </p>
+
+            <!-- CTA Grid Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+                <a href="#" onclick="goBackOrHome(event)" class="px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold rounded-2xl shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-house"></i> Balik ke Beranda
+                </a>
+                <button onclick="shareLink()" class="px-8 py-4 bg-slate-900 border border-slate-700 hover:border-slate-500 hover:bg-slate-800 text-slate-200 font-medium rounded-2xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-share-nodes"></i> Spill ke Temen Lu
+                </button>
+            </div>
+
+            <!-- Fun Mini Bento stats/cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 max-w-lg mx-auto lg:mx-0">
+                <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl text-center hover:border-pink-500/40 transition-all">
+                    <p class="text-2xl md:text-3xl font-bold text-pink-500">100%</p>
+                    <p class="text-xs text-slate-400 mt-1">Udah OVT</p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl text-center hover:border-cyan-500/40 transition-all">
+                    <p class="text-2xl md:text-3xl font-bold text-cyan-400">0</p>
+                    <p class="text-xs text-slate-400 mt-1">Solusi Konkrit</p>
+                </div>
+                <div class="col-span-2 sm:col-span-1 bg-slate-900/60 border border-slate-800 p-4 rounded-2xl text-center hover:border-purple-500/40 transition-all flex flex-col justify-center">
+                    <p class="text-sm font-bold text-purple-400">🔥 Menyala Abangku</p>
+                    <p class="text-xs text-slate-400 mt-1">Tetep Chill</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Interactive Chat & Game Bento (5 Cols on desktop) -->
+        <section class="lg:col-span-5 space-y-6">
+            
+            <!-- Bento Box 1: Interactive AI Assistant Widget -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl relative overflow-hidden backdrop-blur-md">
+                <div class="absolute top-0 right-0 bg-cyan-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-bl-xl">
+                    Online 🟢
+                </div>
+                
+                <h3 class="text-lg font-bold flex items-center gap-2 mb-2 text-cyan-400">
+                    <i class="fa-solid fa-robot"></i> Tanya AI Anak Magang
+                </h3>
+                <p class="text-xs text-slate-400 mb-4">
+                    Ketik apa aja, kita spill alasan kocak kenapa web ini ga ketemu.
+                </p>
+
+                <!-- Chat Display area -->
+                <div id="chat-box" class="h-40 overflow-y-auto mb-4 bg-slate-950/60 rounded-xl p-3 space-y-3 text-sm border border-slate-800/80">
+                    <div class="text-slate-400 italic text-center text-xs py-4">Belum ada obrolan. Coba tanya di bawah! 👇</div>
+                </div>
+
+                <!-- Input area -->
+                <div class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Tanya 'mana app-nya?' atau 'kenapa ilang?'" 
+                           class="flex-grow bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs md:text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-cyan-500 transition-all"
+                           onkeypress="handleChatKey(event)">
+                    <button id="send-btn" onclick="sendMessage()" class="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold px-4 rounded-xl text-sm transition-all flex items-center justify-center">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bento Box 2: Stress Reliever Game (Bubble Wrap) -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl backdrop-blur-md">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-pink-500 flex items-center gap-2">
+                            <i class="fa-solid fa-face-grimace"></i> Stress Buster Zone
+                        </h3>
+                        <p class="text-xs text-slate-400">Pecahin bubble buat redain emosi karena 404.</p>
+                    </div>
+                    <button onclick="resetBubbles()" class="text-xs text-cyan-400 hover:underline">Reset</button>
+                </div>
+
+                <!-- Bubble Grid -->
+                <div class="grid grid-cols-6 gap-3 bg-slate-950/50 p-4 rounded-2xl border border-slate-800" id="bubble-container">
+                    <!-- Dynamic Bubbles go here -->
+                </div>
+
+                <!-- Stats inside Game -->
+                <div class="flex justify-between items-center mt-3 text-xs text-slate-400">
+                    <span id="bubble-score">Gelembung pecah: 0/18</span>
+                    <span class="text-pink-400 font-bold text-[10px] animate-pulse">#AntiStressRill No Fake</span>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Custom Toast Notification System -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900/80 bg-slate-950/50 py-6 text-center text-xs text-slate-500 z-10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>Dibuat penuh air mata & sisa kopi sachet • © 2026 Admin Gabut</p>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-pink-500 transition-all"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+                <a href="#" class="hover:text-cyan-400 transition-all"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="#" class="hover:text-blue-400 transition-all"><i class="fa-brands fa-twitter"></i> X (Twitter)</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Global State & Config
+        const apiKey = ""; // Disediakan secara dinamis oleh environment
+        const modelName = "gemini-2.5-flash-preview-09-2025";
+        let bubblesPopped = 0;
+        const totalBubbles = 18;
+
+        // On document load
+        window.addEventListener('DOMContentLoaded', () => {
+            initBubbles();
+            showToast("👋 Halo cuy! Jangan panik ya, rileks aja dulu.", "info");
+        });
+
+        /* --- Gemini AI Assistant Chatbot Integration --- */
+        async function sendMessage() {
+            const inputEl = document.getElementById('chat-input');
+            const chatBox = document.getElementById('chat-box');
+            const userText = inputEl.value.trim();
+
+            if (!userText) return;
+
+            // Clear input
+            inputEl.value = "";
+
+            // Remove empty placeholder if any
+            const placeholder = chatBox.querySelector('.italic');
+            if (placeholder) placeholder.remove();
+
+            // Append User Message to Chat
+            appendMessage("Kamu", userText, "user");
+            
+            // Append Loading Indicator
+            const loadingId = appendMessage("AI Magang", `<span class="animate-pulse">Bentar, mikir dulu... 🧠</span>`, "ai-loading");
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                const aiResponse = await getGeminiExcuse(userText);
+                // Remove loading
+                document.getElementById(loadingId).remove();
+                // Append AI Response
+                appendMessage("AI Magang", aiResponse, "ai");
+            } catch (error) {
+                console.error(error);
+                // Remove loading
+                document.getElementById(loadingId).remove();
+                appendMessage("AI Magang", "Aduh servernya kena mental, coba tanya lagi deh! 😭", "ai-error");
+            }
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function handleChatKey(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function appendMessage(sender, text, type) {
+            const chatBox = document.getElementById('chat-box');
+            const msgId = 'msg-' + Math.random().toString(36).substr(2, 9);
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.id = msgId;
+            messageDiv.className = `p-2.5 rounded-xl text-xs max-w-[85%] ${
+                type === 'user' 
+                ? 'bg-purple-600/30 text-purple-200 border border-purple-500/20 ml-auto' 
+                : type === 'ai-loading' || type === 'ai-error'
+                ? 'bg-slate-800/50 text-slate-400'
+                : 'bg-cyan-950/40 text-cyan-200 border border-cyan-500/20'
+            }`;
+
+            const senderLabel = `<span class="font-bold block text-[10px] uppercase tracking-wider mb-0.5 opacity-60">${sender}</span>`;
+            messageDiv.innerHTML = senderLabel + `<div>${text}</div>`;
+            
+            chatBox.appendChild(messageDiv);
+            return msgId;
+        }
+
+        // Gemini API Interaction (with exponential backoff)
+        async function getGeminiExcuse(userQuery) {
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+            
+            const systemPrompt = "Kamu adalah AI asisten magang Gen Z yang super santai, kocak, pakai bahasa gaul Indonesia kekinian (seperti 'riil', 'menyala abangku', 'gws', 'yura', 'lho', 'kocak', 'ovt', 'skena', 'spill', 'gaz', 'kemecer'). Tugasmu adalah memberikan alasan kocak, absurd, konyol, dan sangat bernuansa Gen Z kenapa aplikasi atau tautan yang dicari pengguna saat ini 'Not Found', hilang, atau rusak. Jawab dengan sangat singkat, maksimal 2 kalimat pendek, santai, dan pakai banyak emoji.";
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            // Implementation of Exponential Backoff Retry up to 5 times
+            const fetchWithRetry = async (url, options, retries = 5, delay = 1000) => {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return await response.json();
+                } catch (error) {
+                    if (retries > 0) {
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        return fetchWithRetry(url, options, retries - 1, delay * 2);
+                    }
+                    throw error;
+                }
+            };
+
+            try {
+                const data = await fetchWithRetry(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                return data.candidates?.[0]?.content?.parts?.[0]?.text || "Aplikasi lagi mojok di server lain, ntar balik lagi kok.";
+            } catch (err) {
+                throw err;
+            }
+        }
+
+        /* --- Stress Buster Bubble Wrap Game Logic --- */
+        function initBubbles() {
+            const container = document.getElementById('bubble-container');
+            container.innerHTML = '';
+            bubblesPopped = 0;
+            updateBubbleScore();
+
+            for (let i = 0; i < totalBubbles; i++) {
+                const bubble = document.createElement('button');
+                // Stylings for active bubble
+                bubble.className = "h-10 w-10 mx-auto rounded-full bg-pink-500/20 border-2 border-pink-500/60 active:scale-95 hover:bg-pink-500/40 hover:scale-105 transition-all duration-150 flex items-center justify-center outline-none focus:outline-none focus:ring-2 focus:ring-pink-400";
+                bubble.setAttribute('aria-label', 'Pecahkan gelembung');
+                
+                // Click handler
+                bubble.addEventListener('click', function() {
+                    popBubble(bubble);
+                });
+
+                // Touch handler
+                bubble.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    popBubble(bubble);
+                }, { passive: false });
+
+                container.appendChild(bubble);
+            }
+        }
+
+        function popBubble(bubble) {
+            if (bubble.classList.contains('popped')) return;
+
+            // Mark as popped visually and prevent interaction
+            bubble.classList.remove('bg-pink-500/20', 'border-pink-500/60', 'hover:bg-pink-500/40');
+            bubble.classList.add('bg-slate-800/40', 'border-slate-700/50', 'scale-90', 'popped');
+            bubble.innerHTML = '<span class="text-[10px] text-slate-500">💨</span>';
+            bubble.disabled = true;
+
+            // Increment score
+            bubblesPopped++;
+            updateBubbleScore();
+
+            // Custom pop visual shake/particles or quick toast on reaching milestone
+            if (bubblesPopped === totalBubbles) {
+                showToast("🏆 GOKIL! Semua gelembung pecah. Emosi lu auto stabil!", "success");
+            }
+        }
+
+        function resetBubbles() {
+            initBubbles();
+            showToast("🔄 Gelembung di-reset. Siap dibantai lagi!", "info");
+        }
+
+        function updateBubbleScore() {
+            document.getElementById('bubble-score').innerText = `Gelembung pecah: ${bubblesPopped}/${totalBubbles}`;
+        }
+
+        /* --- Utilities / Interactive Effects --- */
+
+        // Spill / Share Link logic
+        function shareLink() {
+            const pageUrl = window.location.href;
+            // Native copy fallback as per guidelines (document.execCommand)
+            const el = document.createElement('textarea');
+            el.value = `Waduh cuy, aplikasi ini ilang dari bumi! Tapi tenang, landing page-nya estetik parah: ${pageUrl}`;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            showToast("🔗 Tautan berhasil di-spill ke papan klip! Share langsung!", "success");
+        }
+
+        // Custom Toast system
+        function showToast(message, type = "info") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            // Style based on type
+            let bgClass = "bg-slate-900 border-slate-700 text-slate-100";
+            if (type === "success") bgClass = "bg-emerald-950/90 border-emerald-500/50 text-emerald-200";
+            if (type === "warning") bgClass = "bg-amber-950/90 border-amber-500/50 text-amber-200";
+            if (type === "panic") bgClass = "bg-rose-950/90 border-rose-500/50 text-rose-200";
+
+            toast.className = `flex items-center gap-3 px-4 py-3 rounded-2xl border ${bgClass} shadow-lg text-xs md:text-sm transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto max-w-sm`;
+            toast.innerHTML = `
+                <div class="flex-shrink-0">
+                    ${type === 'success' ? '<i class="fa-solid fa-circle-check text-emerald-400"></i>' : 
+                      type === 'warning' ? '<i class="fa-solid fa-triangle-exclamation text-amber-400"></i>' :
+                      type === 'panic' ? '<i class="fa-solid fa-fire text-rose-400"></i>' :
+                      '<i class="fa-solid fa-circle-info text-cyan-400"></i>'}
+                </div>
+                <div class="flex-grow">${message}</div>
+                <button class="text-slate-400 hover:text-white" onclick="this.parentElement.remove()"><i class="fa-solid fa-xmark"></i></button>
+            `;
+
+            container.appendChild(toast);
+
+            // Animate In
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 50);
+
+            // Auto dismiss
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 5000);
+        }
+
+        // Emergency Panic button
+        let panicClickCount = 0;
+        function triggerPanic() {
+            panicClickCount++;
+            document.body.classList.add('animate-[shake_0.5s_infinite]');
+            
+            // Apply fun custom shake styling temporarily
+            if (!document.getElementById('shake-style')) {
+                const style = document.createElement('style');
+                style.id = 'shake-style';
+                style.innerHTML = `
+                    @keyframes shake {
+                        0% { transform: translate(1px, 1px) rotate(0deg); }
+                        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+                        20% { transform: translate(-3px, 0px) rotate(1deg); }
+                        30% { transform: translate(0px, 2px) rotate(0deg); }
+                        40% { transform: translate(1px, -1px) rotate(1deg); }
+                        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+                        60% { transform: translate(-3px, 1px) rotate(0deg); }
+                        75% { transform: translate(2px, 1px) rotate(-1deg); }
+                        90% { transform: translate(-1px, -1px) rotate(1deg); }
+                        100% { transform: translate(1px, -2px) rotate(0deg); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            if (panicClickCount === 1) {
+                showToast("🚨 PANIK BANGET!? Tenang cuy, jantungan ntar!", "panic");
+            } else if (panicClickCount === 3) {
+                showToast("🔥 SERVER MAU MELEDAK! Canda deng, rileks gausah spam click.", "panic");
+            } else if (panicClickCount >= 5) {
+                showToast("💥 Oke, lu keterlaluan. Sistem distabilkan kembali.", "success");
+                setTimeout(() => {
+                    document.body.classList.remove('animate-[shake_0.5s_infinite]');
+                    panicClickCount = 0;
+                }, 1000);
+            }
+
+            // Remove shake automatically if not spammed
+            setTimeout(() => {
+                if (panicClickCount < 5) {
+                    document.body.classList.remove('animate-[shake_0.5s_infinite]');
+                }
+            }, 800);
+        }
+
+        // Flexible navigation helper
+        function goBackOrHome(e) {
+            e.preventDefault();
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                showToast("🏠 Lu udah berada di halaman beranda / mandiri!", "info");
+            }
+        }
+    </script>
+</body>
+</html>
